@@ -487,6 +487,34 @@
         drawMemberSection();
       }
 
+      // Vector star drawer helper for crisp canvas graphics without font/emoji dependencies
+      function drawVectorStar(cx, cy, spikes, outerRadius, innerRadius, fillStyle) {
+        let rot = Math.PI / 2 * 3;
+        let x = cx;
+        let y = cy;
+        const step = Math.PI / spikes;
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(cx, cy - outerRadius);
+        for (let i = 0; i < spikes; i++) {
+          x = cx + Math.cos(rot) * outerRadius;
+          y = cy + Math.sin(rot) * outerRadius;
+          ctx.lineTo(x, y);
+          rot += step;
+
+          x = cx + Math.cos(rot) * innerRadius;
+          y = cy + Math.sin(rot) * innerRadius;
+          ctx.lineTo(x, y);
+          rot += step;
+        }
+        ctx.lineTo(cx, cy - outerRadius);
+        ctx.closePath();
+        ctx.fillStyle = fillStyle;
+        ctx.fill();
+        ctx.restore();
+      }
+
       logoImg.onload = drawLogo;
       logoImg.onerror = function () {
         // Fallback drawing if image fails
@@ -495,10 +523,7 @@
         ctx.beginPath();
         ctx.arc(88, 142, 46, 0, Math.PI * 2);
         ctx.fill();
-        ctx.fillStyle = '#ffffff';
-        ctx.font = 'bold 36px sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText('★', 88, 154);
+        drawVectorStar(88, 142, 5, 22, 10, '#ffffff');
         ctx.restore();
         drawLogo();
       };
@@ -631,7 +656,7 @@
           ctx.font = '900 13px "Inter", sans-serif';
           ctx.textAlign = 'center';
           ctx.fillText('CENTRAL REGISTER', 0, -18);
-          ctx.fillText('★ COP PK ★', 0, 3);
+          ctx.fillText('• COP PK •', 0, 3);
           ctx.fillText('سرخ سلام', 0, 24);
           ctx.restore();
 

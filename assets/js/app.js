@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Communists of Pakistan (COP) - Main Application Controller
  * Official Handle: @COPOFPK
  * 
@@ -486,7 +486,7 @@ document.addEventListener('DOMContentLoaded', () => {
         regConfirm.style.display = 'block';
         regConfirm.innerHTML = `
           <div style="text-align: center; padding: 2.5rem 1.5rem;">
-            <div style="width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #dc2626, #991b1b); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.4rem; box-shadow: 0 0 25px rgba(220, 38, 38, 0.5);">✓</div>
+            <div style="width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #dc2626, #991b1b); color: #fff; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.4rem; box-shadow: 0 0 25px rgba(220, 38, 38, 0.5);"><svg class="svg-icon" viewBox="0 0 24 24" style="width:36px;height:36px;stroke:#fff;stroke-width:3;"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
             <h3 style="font-size: 1.9rem; margin-bottom: 0.6rem; color: #ffffff; font-weight: 800;">Lal Salam, Comrade ${result.comrade.name}!</h3>
             <p style="font-size: 1.05rem; color: #cbd5e1; max-width: 620px; margin: 0 auto 1.4rem; line-height: 1.6;">
               ${result.isNew ? 'Your application has been recorded in the central cadre register.' : 'Your existing registration has been loaded.'}
@@ -498,8 +498,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <span style="color: #94a3b8; font-size: 0.72rem;">Security Hash: ${result.comrade.hash}</span>
             </div>
             <div style="display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem;">
-              <button class="btn btn-primary btn-sm" onclick="window.downloadComradeCard('${result.comrade.id}')">📥 Download Card PNG</button>
-              <button class="btn btn-secondary btn-sm" onclick="window.print()">🖨️ Print Membership Slip</button>
+              <button class="btn btn-primary btn-sm" onclick="window.downloadComradeCard('${result.comrade.id}')"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg> Download Card PNG</button>
+              <button class="btn btn-secondary btn-sm" onclick="window.print()"><svg class="svg-icon" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg> Print Membership Slip</button>
               <a href="https://x.com/COPOFPK" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">Connect on 𝕏 @COPOFPK</a>
             </div>
           </div>
@@ -537,7 +537,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (joinForm) joinForm.reset();
       uploadedPhotoBase64 = null;
       if (photoPreview) {
-        photoPreview.innerHTML = '<span class="photo-placeholder">📷</span><span class="photo-placeholder-text">Click to Upload</span>';
+        photoPreview.innerHTML = '<span class="photo-placeholder"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg></span><span class="photo-placeholder-text">Click to Upload</span>';
       }
       if (liveCardPhotoImg) {
         liveCardPhotoImg.src = 'assets/images/cop_logo.jpg';
@@ -606,7 +606,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       verifyResult.innerHTML = `
         <div class="verify-found">
-          <div class="verify-status-badge verify-status-active">✓ VERIFIED &bull; OFFICIAL COP CADRE</div>
+          <div class="verify-status-badge verify-status-active"><svg class="svg-icon" viewBox="0 0 24 24" style="width:14px;height:14px;display:inline-block;vertical-align:-2px;stroke-width:3;margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>VERIFIED &bull; OFFICIAL COP CADRE</div>
           <div class="verify-card-row">
             <div class="comrade-id-card" style="max-width: 460px;">
               <div class="card-chip-header">
@@ -658,8 +658,8 @@ document.addEventListener('DOMContentLoaded', () => {
               ${comrade.cnic ? `<div class="verify-detail-row"><span>CNIC:</span><strong>${comrade.cnic}</strong></div>` : ''}
               ${comrade.notes ? `<div class="verify-detail-row"><span>Notes:</span><strong>${comrade.notes}</strong></div>` : ''}
               <div style="display: flex; gap: 0.6rem; margin-top: 1.2rem; flex-wrap: wrap;">
-                <button class="btn btn-primary btn-sm" onclick="window.downloadComradeCard('${comrade.id}')">📥 Download This Card</button>
-                <button class="btn btn-secondary btn-sm" onclick="window.print()">🖨️ Print Slip</button>
+                <button class="btn btn-primary btn-sm" onclick="window.downloadComradeCard('${comrade.id}')"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg> Download This Card</button>
+                <button class="btn btn-secondary btn-sm" onclick="window.print()"><svg class="svg-icon" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg> Print Slip</button>
               </div>
             </div>
           </div>
@@ -669,12 +669,12 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       verifyResult.innerHTML = `
         <div class="verify-not-found">
-          <div class="verify-status-badge verify-status-fail">✗ NOT FOUND IN CENTRAL LEDGER</div>
+          <div class="verify-status-badge verify-status-fail"><svg class="svg-icon" viewBox="0 0 24 24" style="width:14px;height:14px;display:inline-block;vertical-align:-2px;stroke-width:3;margin-right:6px;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>NOT FOUND IN CENTRAL LEDGER</div>
           <p style="color: #cbd5e1; margin-top: 1rem; font-size: 1rem;">No registered cadre found matching "<strong style="color: #f87171;">${query}</strong>".</p>
           <p style="color: #64748b; font-size: 0.88rem; margin-top: 0.5rem;">
             Please ensure you typed the full Serial (e.g. <code>COP-PK-2026-100001</code>) or the registered Pakistani phone number.
           </p>
-          <button class="btn btn-secondary btn-sm" style="margin-top: 1rem;" onclick="document.querySelector('[data-panel=\\'registerPanel\\']').click()">➕ Enlist as New Cadre</button>
+          <button class="btn btn-secondary btn-sm" style="margin-top: 1rem;" onclick="document.querySelector('[data-panel=\\'registerPanel\\']').click()"><svg class="svg-icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg> Enlist as New Cadre</button>
         </div>
       `;
     }
@@ -738,9 +738,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <td><span class="roster-status-pill ${c.status.includes('Active') ? 'status-active' : 'status-honorary'}">${c.status}</span></td>
         <td style="font-size: 0.78rem;">${dateStr}</td>
         <td>
-          <button class="btn-icon roster-view-btn" title="Verify this comrade" data-id="${c.id}">🔍</button>
-          <button class="btn-icon roster-dl-btn" title="Download HD Card" data-id="${c.id}">📥</button>
-          ${isLocal ? `<button class="btn-icon roster-delete-btn" title="Remove from local ledger" data-id="${c.id}">🗑️</button>` : ''}
+          <button class="btn-icon roster-view-btn" title="Verify this comrade" data-id="${c.id}"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+          <button class="btn-icon roster-dl-btn" title="Download HD Card" data-id="${c.id}"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg></button>
+          ${isLocal ? `<button class="btn-icon roster-delete-btn" title="Remove from local ledger" data-id="${c.id}"><svg class="svg-icon" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></button>` : ''}
         </td>
       `;
       rosterBody.appendChild(row);
@@ -831,7 +831,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (langLabel) langLabel.textContent = currentLang === 'en' ? 'اردو' : 'English';
 
       document.querySelectorAll('[data-en][data-ur]').forEach(el => {
-        el.textContent = el.getAttribute(`data-${currentLang}`);
+        const text = el.getAttribute(`data-${currentLang}`);
+        const svg = el.querySelector('svg');
+        if (svg) {
+          el.innerHTML = '';
+          el.appendChild(svg);
+          el.appendChild(document.createTextNode(' ' + text));
+        } else {
+          el.textContent = text;
+        }
       });
 
       document.body.classList.toggle('lang-urdu', currentLang === 'ur');
