@@ -1,0 +1,45 @@
+# -----------------------------------------------------------
+# COP Project - Git Ignore
+# Keeps secrets, dependencies, and OS clutter out of GitHub
+# -----------------------------------------------------------
+
+# --- Dependencies ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Secrets / environment files ---
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# --- Server logs ---
+server.log
+server.out
+server.err
+*.log
+
+# --- Build / runtime artifacts ---
+dist/
+build/
+.next/
+out/
+
+# --- OS generated files ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Misc ---
+coverage/
+.tmp/

@@ -7,124 +7,29 @@
   'use strict';
 
   // Seed founding historical cadre records for verification & demonstration
-  const FOUNDING_CADRES = [
-    {
-      id: 'COP-PK-2026-100001',
-      name: 'Comrade Jam Saqi',
-      phone: '0300-1110001',
-      email: 'jam.saqi@cop.pk',
-      cnic: '41302-1234567-1',
-      city: 'Hyderabad',
-      province: 'Sindh',
-      wing: 'All Pakistan Mazdoor Council (Labor)',
-      role: 'Founding Member / Central Secretariat',
-      status: 'Active Central Cadre',
-      joinedAt: '2026-01-15T10:00:00.000Z',
-      expiryDate: 'NOV 2028',
-      hash: 'SEC-8F12A09C',
-      notes: 'Pioneer of agrarian rights and peasant organizing across lower Indus valley.'
-    },
-    {
-      id: 'COP-PK-2026-100002',
-      name: 'Comrade Dada Amir Haider',
-      phone: '0300-1110002',
-      email: 'amir.haider@cop.pk',
-      cnic: '37405-2345678-2',
-      city: 'Rawalpindi',
-      province: 'Punjab',
-      wing: 'Kissan & Hari Action Front (Peasants)',
-      role: 'Honorary Mentor / Agrarian Bureau',
-      status: 'Active Central Cadre',
-      joinedAt: '2026-02-01T10:00:00.000Z',
-      expiryDate: 'NOV 2028',
-      hash: 'SEC-7B45E21D',
-      notes: 'Dedicated to tenant farmer unionization and revolutionary literacy.'
-    },
-    {
-      id: 'COP-PK-2026-100003',
-      name: 'Comrade Faiz Ahmad Faiz',
-      phone: '0300-1110003',
-      email: 'faiz@cop.pk',
-      cnic: '35202-3456789-3',
-      city: 'Lahore',
-      province: 'Punjab',
-      wing: 'Progressive Media, Art & Propaganda',
-      role: 'Honorary Laureate / Cultural Wing',
-      status: 'Honorary Vanguard',
-      joinedAt: '2026-02-10T10:00:00.000Z',
-      expiryDate: 'NOV 2028',
-      hash: 'SEC-3A99F440',
-      notes: 'Revolutionary resistance poetry and trade union federation leadership.'
-    },
-    {
-      id: 'COP-PK-2026-100004',
-      name: 'Comrade Begum Nasim Wali',
-      phone: '0300-1110004',
-      email: 'nasim.wali@cop.pk',
-      cnic: '17301-4567890-4',
-      city: 'Peshawar',
-      province: 'Khyber Pakhtunkhwa',
-      wing: 'Democratic Women\'s League',
-      role: 'Front Organizer / Northern Bureau',
-      status: 'Active Central Cadre',
-      joinedAt: '2026-03-05T10:00:00.000Z',
-      expiryDate: 'NOV 2028',
-      hash: 'SEC-91C083F6',
-      notes: 'Grassroots mobilizing of women workers, nurses, and rural teachers.'
-    }
-  ];
+  const FOUNDING_CADRES = [];
 
-  const STORAGE_KEY_ROSTER = 'cop_cadre_roster';
-  const STORAGE_KEY_ACTIVE = 'cop_active_cadre_id';
+  // API base (same origin — Express serves frontend + API)
+  const API_BASE = '';
 
-  // --- CADRE LEDGER CONTROLLER ---
+  // --- CADRE LEDGER CONTROLLER (PostgreSQL-backed) ---
   const PartyLedger = {
-    // Get all combined cadres (founding + user registered)
-    getAll: function () {
-      let localCadres = [];
-      try {
-        const stored = localStorage.getItem(STORAGE_KEY_ROSTER);
-        if (stored) {
-          localCadres = JSON.parse(stored);
-        }
-      } catch (err) {
-        console.warn('Error reading from localStorage:', err);
-      }
-      return [...localCadres, ...FOUNDING_CADRES];
+    // Get all cadres from PostgreSQL
+    async getAll() {
+      const res = await fetch(`${API_BASE}/api/cadres`);
+      if (!res.ok) return [];
+      return await res.json();
     },
 
-    // Get locally registered cadres only
-    getLocalOnly: function () {
-      try {
-        const stored = localStorage.getItem(STORAGE_KEY_ROSTER);
-        return stored ? JSON.parse(stored) : [];
-      } catch (err) {
-        return [];
-      }
+    // Get locally registered cadres only (all cadres live in PostgreSQL now)
+    async getLocalOnly() {
+      return this.getAll();
     },
 
-    // Register a new comrade with complete validation and serial generation
-    register: function (data) {
-      const local = this.getLocalOnly();
-      
-      // Clean phone number (digits only for matching)
-      const cleanPhone = (data.phone || '').replace(/[^0-9]/g, '');
-
-      // Check if phone or email already registered locally
-      const existing = local.find(c => {
-        const cPhone = (c.phone || '').replace(/[^0-9]/g, '');
-        return (cleanPhone && cPhone === cleanPhone) || (data.email && c.email && c.email.toLowerCase() === data.email.toLowerCase());
-      });
-
-      if (existing) {
-        // Return existing comrade
-        localStorage.setItem(STORAGE_KEY_ACTIVE, existing.id);
-        return { isNew: false, comrade: existing };
-      }
-
+    // Register a new comrade via PostgreSQL API
+    async register(data) {
       // Generate authentic serial: COP-PK-2026-XXXXXX
-      const randomPart = Math.floor(200000 + Math.random() * 799999);
-      const newId = `COP-PK-2026-${randomPart}`;
+      const newId = `COP-PK-2026-${Math.floor(200000 + Math.random() * 799999)}`;
 
       // Generate security hash
       const hashStr = `${data.name}-${data.city}-${Date.now()}`;
@@ -135,7 +40,7 @@
       }
       const secHash = 'SEC-' + Math.abs(hashNum).toString(16).toUpperCase().padStart(8, '0');
 
-      const newCadre = {
+      const payload = {
         id: newId,
         name: data.name.trim(),
         cnic: data.cnic ? data.cnic.trim() : '',
@@ -150,32 +55,52 @@
         notes: data.notes ? data.notes.trim() : '',
         joinedAt: new Date().toISOString(),
         expiryDate: 'NOV 2028',
-        hash: secHash
+        hash: secHash,
       };
 
-      local.unshift(newCadre);
-      try {
-        localStorage.setItem(STORAGE_KEY_ROSTER, JSON.stringify(local));
-        localStorage.setItem(STORAGE_KEY_ACTIVE, newId);
-      } catch (e) {
-        console.error('Storage full or error saving:', e);
-      }
+      const res = await fetch(`${API_BASE}/api/cadres`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
 
-      return { isNew: true, comrade: newCadre };
+      if (res.status === 409) {
+        const err = await res.json();
+        await fetch(`${API_BASE}/api/active-cadre`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ cadreId: err.existingId }),
+        });
+        return { isNew: false, comrade: await this.lookup(err.existingId) };
+      }
+      if (!res.ok) throw new Error('Registration failed');
+
+      const result = await res.json();
+      await fetch(`${API_BASE}/api/active-cadre`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cadreId: result.comrade.id }),
+      });
+      return result;
     },
 
     // Search / verify by ID or phone number or name
-    lookup: function (query) {
+    async lookup(query) {
       if (!query) return null;
       const q = query.trim().toUpperCase();
       const qDigits = query.replace(/[^0-9]/g, '');
-      const all = this.getAll();
 
-      // First check exact ID match
+      // Try exact ID lookup via API
+      try {
+        const res = await fetch(`${API_BASE}/api/cadres/${q}`);
+        if (res.ok) return await res.json();
+      } catch {}
+
+      // Fallback: search all cadres
+      const all = await this.getAll();
       let match = all.find(c => c.id.toUpperCase() === q);
       if (match) return match;
 
-      // Second check phone number match
       if (qDigits && qDigits.length >= 7) {
         match = all.find(c => {
           const cDigits = (c.phone || '').replace(/[^0-9]/g, '');
@@ -184,7 +109,6 @@
         if (match) return match;
       }
 
-      // Third check CNIC
       if (qDigits && qDigits.length >= 10) {
         match = all.find(c => {
           const cnicDigits = (c.cnic || '').replace(/[^0-9]/g, '');
@@ -193,45 +117,29 @@
         if (match) return match;
       }
 
-      // Fourth check Name match
       match = all.find(c => c.name.toUpperCase().includes(q));
       return match || null;
     },
 
-    // Get currently active comrade on this device
-    getActive: function () {
+    // Get currently active comrade from PostgreSQL
+    async getActive() {
       try {
-        const activeId = localStorage.getItem(STORAGE_KEY_ACTIVE);
-        if (activeId) {
-          const all = this.getAll();
-          const match = all.find(c => c.id === activeId);
-          if (match) return match;
-        }
-        // Fallback to most recent local cadre
-        const local = this.getLocalOnly();
-        return local.length > 0 ? local[0] : null;
+        const res = await fetch(`${API_BASE}/api/active-cadre`);
+        const data = await res.json();
+        return data.active || null;
       } catch (err) {
         return null;
       }
     },
 
-    // Delete a locally registered comrade
-    delete: function (id) {
-      let local = this.getLocalOnly();
-      local = local.filter(c => c.id !== id);
-      try {
-        localStorage.setItem(STORAGE_KEY_ROSTER, JSON.stringify(local));
-        if (localStorage.getItem(STORAGE_KEY_ACTIVE) === id) {
-          localStorage.removeItem(STORAGE_KEY_ACTIVE);
-        }
-      } catch (e) {
-        console.error('Error updating storage:', e);
-      }
+    // Delete a cadre from PostgreSQL
+    async delete(id) {
+      await fetch(`${API_BASE}/api/cadres/${id}`, { method: 'DELETE' });
     },
 
-    // Export local cadre ledger as CSV file
-    exportCSV: function () {
-      const cadres = this.getAll();
+    // Export cadre ledger as CSV file
+    async exportCSV() {
+      const cadres = await this.getAll();
       if (!cadres.length) return false;
 
       const headers = ['Card_ID', 'Name', 'Phone', 'CNIC', 'Email', 'City', 'Province', 'Wing', 'Status', 'Registered_Date', 'Security_Hash'];
@@ -263,8 +171,8 @@
     },
 
     // Export as JSON file
-    exportJSON: function () {
-      const cadres = this.getAll();
+    async exportJSON() {
+      const cadres = await this.getAll();
       const blob = new Blob([JSON.stringify(cadres, null, 2)], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
@@ -714,11 +622,8 @@
           ctx.ellipse(photoX + photoW / 2, photoY + 175, 62, 45, 0, 0, Math.PI, true);
           ctx.fill();
 
-          // Red Star in center
-          ctx.fillStyle = '#dc2626';
-          ctx.font = 'bold 36px sans-serif';
-          ctx.textAlign = 'center';
-          ctx.fillText('🚩', photoX + photoW / 2, photoY + 82);
+          // Official Party Star in center
+          drawVectorStar(photoX + photoW / 2, photoY + 70, 5, 16, 7, '#ef4444');
           ctx.textAlign = 'left';
         }
       }

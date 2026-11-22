@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -86,6 +86,7 @@
 
       <ul class="nav-menu" id="navMenu">
         <li><a href="#home" class="nav-link active" data-en="Home" data-ur="صفحہ اول">Home</a></li>
+        <li><a href="#timeline" class="nav-link" data-en="Timeline" data-ur="تاریخی سفر">Timeline</a></li>
         <li><a href="#about" class="nav-link" data-en="About Us" data-ur="ہمارے بارے میں">About Us</a></li>
         <li><a href="#program" class="nav-link" data-en="10-Point Program" data-ur="دس نکاتی منشور">10-Point Program</a></li>
         <li><a href="#wings" class="nav-link" data-en="Party Wings" data-ur="تنظیمی شعبے">Party Wings</a></li>
@@ -129,7 +130,7 @@
           <div class="hero-badge-pill">
             <span class="beacon-dot"></span>
             <svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
-            <span data-en="Official Vanguard" of the Working Class" data-ur="محنت کش طبقے کی باضابطہ ہراول جماعت">Official Vanguard of the Working Class</span>
+            <span data-en="Official Vanguard of the Working Class" data-ur="محنت کش طبقے کی باضابطہ ہراول جماعت">Official Vanguard of the Working Class</span>
           </div>
 
           <h1 class="hero-title" data-en="COMMUNISTS OF PAKISTAN" data-ur="کمیونسٹس آف پاکستان">
@@ -221,6 +222,224 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Revolutionary Timeline Section -->
+  <section class="section section-alt section-timeline" id="timeline">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-en="Unbroken Red Thread" data-ur="تاریخی تسلسل">Unbroken Red Thread</span>
+        <h2 class="section-title" data-en="Chronicle of Socialist Struggle in Pakistan" data-ur="پاکستان میں سوشلسٹ جدوجہد کا تاریخی سفر">Chronicle of Socialist Struggle in Pakistan</h2>
+        <p class="section-subtitle" data-en="From the historic 1948 founding congress to the modern digital vanguard under @COPOFPK — over seven decades of defiance against feudal despotism, military dictatorships, and imperialist austerity." data-ur="1948 کے تاریخی قیام سے لے کر عصرِ حاضر میں عوامی محاذوں کی صف بندی تک: جاگیرداری، آمریت اور سامراج کے خلاف سات دہائیوں پر محیط انقلابی استقامت۔">
+          From the historic 1948 founding congress to the modern digital vanguard under @COPOFPK — over seven decades of defiance against feudal despotism, military dictatorships, and imperialist austerity.
+        </p>
+      </div>
+
+      <!-- Era Filter Navigation -->
+      <div class="timeline-filter-nav" id="timelineFilterNav">
+        <button class="timeline-filter-btn active" data-era="all" data-en="All Milestones" data-ur="مکمل تاریخی سفر">
+          <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>All Milestones</span>
+        </button>
+        <button class="timeline-filter-btn" data-era="foundations" data-en="1948–1958: Inception" data-ur="1948–1958: سنگِ بنیاد">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+          <span>1948–1958: Inception</span>
+        </button>
+        <button class="timeline-filter-btn" data-era="mass" data-en="1968–1970: Mass Upsurge" data-ur="1968–1970: عوامی طوفان">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"></path></svg>
+          <span>1968–1970: Mass Upsurge</span>
+        </button>
+        <button class="timeline-filter-btn" data-era="resistance" data-en="1980–1986: Martyrs & Defiance" data-ur="1980–1986: شہداء اور مزاحمت">
+          <svg class="svg-icon" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+          <span>1980–1986: Martyrs & Defiance</span>
+        </button>
+        <button class="timeline-filter-btn" data-era="modern" data-en="2020s–Present: Modern Vanguard" data-ur="عصرِ حاضر: ہراول دستہ">
+          <svg class="svg-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>2020s–Present: Modern Vanguard</span>
+        </button>
+      </div>
+
+      <!-- Main Timeline Track -->
+      <div class="timeline-track-wrap">
+        <div class="timeline-spine"></div>
+
+        <!-- 1. 1948 Foundation -->
+        <div class="timeline-item timeline-left" data-era="foundations">
+          <div class="timeline-node" title="1948 • Foundation">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-meta-bar">
+              <span class="timeline-year"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <span data-en="1948 • INCEPTION" data-ur="1948 • سنگِ بنیاد">1948 • INCEPTION</span></span>
+              <span class="timeline-category" data-en="First Central Committee" data-ur="پہلی مرکزی کمیٹی">First Central Committee</span>
+            </div>
+            <h3 class="timeline-title" data-en="Founding of the Communist Movement in Pakistan" data-ur="پاکستان میں کمیونسٹ تحریک کا باضابطہ آغاز">Founding of the Communist Movement in Pakistan</h3>
+            <div class="timeline-quote">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 0 4-1.5 6-3 8zm14 0c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 0 4-1.5 6-3 8z"></path></svg>
+              <span data-en="“Our duty is to organize the working class and peasant masses of this new country against feudalism, exploitation, and imperialist intrigue.” — Comrade Sajjad Zaheer" data-ur="”ہماری ذمہ داری نوزائیدہ ملک کے محنت کشوں اور کسانوں کو جاگیرداری، استحصال اور سامراجی سازشوں کے خلاف منظم کرنا ہے۔“ — کامریڈ سجاد ظہیر">“Our duty is to organize the working class and peasant masses of this new country against feudalism, exploitation, and imperialist intrigue.” — Comrade Sajjad Zaheer</span>
+            </div>
+            <p class="timeline-desc" data-en="Founded at the 2nd Congress of the Communist Party in Calcutta in March 1948 by delegates from West and East Pakistan. Renowned intellectual Comrade Sajjad Zaheer was elected General Secretary. Headquarters were immediately established in Lahore and Karachi, rapidly mobilizing railway unions, textile workers, and peasant fronts." data-ur="مارچ 1948 میں کلکتہ کانگریس کے دوران مغربی اور مشرقی پاکستان کے مندوبین نے کمیونسٹ پارٹی کے قیام کا باضابطہ فیصلہ کیا۔ نامور دانشور کامریڈ سجاد ظہیر پہلے جنرل سیکرٹری منتخب ہوئے اور لاہور و کراچی میں مراکز قائم کر کے ریلوے اور ٹیکسٹائل مزدوروں کو منظم کیا گیا۔">
+              Founded at the 2nd Congress of the Communist Party in Calcutta in March 1948 by delegates from West and East Pakistan. Renowned intellectual Comrade Sajjad Zaheer was elected General Secretary. Headquarters were immediately established in Lahore and Karachi, rapidly mobilizing railway unions, textile workers, and peasant fronts.
+            </p>
+            <div class="timeline-impact-pill">
+              <svg class="svg-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span data-en="Key Pillar: Formation of Pakistan Trade Union Federation (PTUF) under Mirza Ibrahim" data-ur="اہم سنگِ میل: مرزا محمد ابراہیم کی قیادت میں پاکستان ٹریڈ یونین فیڈریشن کا قیام">Key Pillar: Formation of Pakistan Trade Union Federation (PTUF) under Mirza Ibrahim</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. 1951 Rawalpindi Conspiracy -->
+        <div class="timeline-item timeline-right" data-era="foundations">
+          <div class="timeline-node" title="1951 • Rawalpindi Conspiracy Case">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 3v18M3 7l4 8M17 7l4 8M7 15a4 4 0 0 1-8 0M21 15a4 4 0 0 1-8 0M3 7h18"></path></svg>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-meta-bar">
+              <span class="timeline-year"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <span data-en="1951 • RESISTANCE" data-ur="1951 • استقامت و قربانی">1951 • RESISTANCE</span></span>
+              <span class="timeline-category" data-en="Democratic Defense" data-ur="تاریخی مقدمہ">Democratic Defense</span>
+            </div>
+            <h3 class="timeline-title" data-en="The Rawalpindi Conspiracy Case: Defending Anti-Imperialist Thought" data-ur="راولپنڈی سازش کیس: فکری آزادی اور سامراج دشمنی کا دفاع">The Rawalpindi Conspiracy Case: Defending Anti-Imperialist Thought</h3>
+            <div class="timeline-quote">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 0 4-1.5 6-3 8zm14 0c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 0 4-1.5 6-3 8z"></path></svg>
+              <span data-en="“Nisaar main teri galiyon ke ae watan ke jahan / Chali hai rasm ke koi na sar utha ke chale...” — Faiz Ahmad Faiz, Zindan-Nama" data-ur="”نثار میں تری گلیوں کے اے وطن کہ جہاں / چلی ہے رسم کہ کوئی نہ سر اٹھا کے چلے...“ — فیض احمد فیض، زنداں نامہ">“Nisaar main teri galiyon ke ae watan ke jahan / Chali hai rasm ke koi na sar utha ke chale...” — Faiz Ahmad Faiz, Zindan-Nama</span>
+            </div>
+            <p class="timeline-desc" data-en="Fearing the growing influence of socialist thought and widespread popular opposition to imperialist military pacts (SEATO and CENTO), the regime launched sweeping arrests. Faiz Ahmad Faiz, Sajjad Zaheer, and patriotic military officers were imprisoned in Hyderabad Special Jail. The courtroom was transformed into an immortal bastion of socialist defiance and revolutionary literature." data-ur="سامراجی عسکری معاہدوں (سینٹو اور سیٹو) کی عوامی مخالفت اور سوشلسٹ فکر سے خوفزدہ ہو کر ریاستی اشرافیہ نے فیض احمد فیض، سجاد ظہیر اور ترقی پسند عسکری افسران کو گرفتار کیا۔ حیدرآباد جیل کی سماعت فکری آزادی اور انقلابی ادب کا گہوارہ بن گئی۔">
+              Fearing the growing influence of socialist thought and widespread popular opposition to imperialist military pacts (SEATO and CENTO), the regime launched sweeping arrests. Faiz Ahmad Faiz, Sajjad Zaheer, and patriotic military officers were imprisoned in Hyderabad Special Jail. The courtroom was transformed into an immortal bastion of socialist defiance and revolutionary literature.
+            </p>
+            <div class="timeline-impact-pill">
+              <svg class="svg-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span data-en="Key Pillar: Immortalization of socialist courage in Faiz's prison poetry collections" data-ur="اہم سنگِ میل: فیض کے شاہکار شعری مجموعوں ’دستِ صبا‘ اور ’زنداں نامہ‘ کی تخلیق">Key Pillar: Immortalization of socialist courage in Faiz's prison poetry collections</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. 1954-1958 The United Front -->
+        <div class="timeline-item timeline-left" data-era="foundations">
+          <div class="timeline-node" title="1954–1958 • The United Front">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-meta-bar">
+              <span class="timeline-year"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <span data-en="1954–1958 • UNITED FRONT" data-ur="1954–1958 • متحدہ محاذ">1954–1958 • UNITED FRONT</span></span>
+              <span class="timeline-category" data-en="Mass Coalition" data-ur="عوامی اتحاد">Mass Coalition</span>
+            </div>
+            <h3 class="timeline-title" data-en="State Ban, Underground Cadres & The National Awami Party (NAP)" data-ur="پارٹی پر پابندی، خفیہ تنظیم اور نیشنل عوامی پارٹی (NAP) کا قیام">State Ban, Underground Cadres & The National Awami Party (NAP)</h3>
+            <div class="timeline-quote">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 0 4-1.5 6-3 8zm14 0c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 0 4-1.5 6-3 8z"></path></svg>
+              <span data-en="“We will not let Pakistan become an outpost of imperialist aggression. The people must own the wealth of the land.” — Maulana Bhashani" data-ur="”ہم پاکستان کو سامراجی جارحیت کا اڈا نہیں بننے دیں گے۔ دھرتی کی دولت پر صرف اس کے محنت کش عوام کا حق ہے۔“ — مولانا عبدالحمید خان بھاشانی">“We will not let Pakistan become an outpost of imperialist aggression. The people must own the wealth of the land.” — Maulana Bhashani</span>
+            </div>
+            <p class="timeline-desc" data-en="In July 1954, under pressure from US Cold War treaties, the regime banned the Communist Party and student unions. Cadres adapted with disciplined underground structures, leading the Democratic Students Federation (DSF) and catalyzing the 1957 formation of the National Awami Party (NAP) — uniting anti-imperialist, socialist, and provincial autonomy leaders across Pakistan." data-ur="جولائی 1954 میں سرد جنگ کے امریکی دباؤ پر پارٹی اور ترقی پسند طلبہ تنظیموں پر پابندی عائد کر دی گئی۔ کامریڈز نے زیرِ زمین رہ کر ڈیموکریٹک اسٹوڈنٹس فیڈریشن (DSF) کو منظم کیا اور 1957 میں تاریخی نیشنل عوامی پارٹی (NAP) کی بنیاد رکھی جس نے جاگیرداری مخالف اور صوبائی خودمختاری کی تحریک کو یکجا کیا۔">
+              In July 1954, under pressure from US Cold War treaties, the regime banned the Communist Party and student unions. Cadres adapted with disciplined underground structures, leading the Democratic Students Federation (DSF) and catalyzing the 1957 formation of the National Awami Party (NAP) — uniting anti-imperialist, socialist, and provincial autonomy leaders across Pakistan.
+            </p>
+            <div class="timeline-impact-pill">
+              <svg class="svg-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span data-en="Key Pillar: Building the largest mass anti-imperialist progressive front in Pakistan's history" data-ur="اہم سنگِ میل: پاکستان کی تاریخ کے سب سے بڑے سامراج دشمن ترقی پسند اتحاد کا ظہور">Key Pillar: Building the largest mass anti-imperialist progressive front in Pakistan's history</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. 1968-1970 Mass Upsurge -->
+        <div class="timeline-item timeline-right" data-era="mass">
+          <div class="timeline-node" title="1968–1970 • Mass Upsurge">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M11 2a2 2 0 0 0-2 2v4H7a2 2 0 0 0-2 2v4a7 7 0 0 0 14 0V9a2 2 0 0 0-2-2h-2V4a2 2 0 0 0-2-2zM9 14v-2M13 14v-4M17 14v-4M5 14v-2"></path></svg>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-meta-bar">
+              <span class="timeline-year"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <span data-en="1968–1970 • MASS UPSURGE" data-ur="1968–1970 • عوامی طوفان">1968–1970 • MASS UPSURGE</span></span>
+              <span class="timeline-category" data-en="Labor & Agrarian Uprising" data-ur="مزدور کسان انقلاب">Labor & Agrarian Uprising</span>
+            </div>
+            <h3 class="timeline-title" data-en="Nationwide General Strikes & Toba Tek Singh Peasant Conference" data-ur="ملک گیر مزدور ہڑتالیں اور تاریخی ٹوبہ ٹیک سنگھ کسان کانفرنس">Nationwide General Strikes & Toba Tek Singh Peasant Conference</h3>
+            <div class="timeline-quote">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 0 4-1.5 6-3 8zm14 0c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 0 4-1.5 6-3 8z"></path></svg>
+              <span data-en="“Land belongs to the tiller! Down with the 22 families and their military patron!” — Toba Tek Singh Historic Slogan (1970)" data-ur="”زمین اس کی جو اس کو جوتے! بائیس خاندانوں اور ان کی فوجی سرپرستی کا خاتمہ!“ — ٹوبہ ٹیک سنگھ کسان نعرہ (1970)">“Land belongs to the tiller! Down with the 22 families and their military patron!” — Toba Tek Singh Historic Slogan (1970)</span>
+            </div>
+            <p class="timeline-desc" data-en="Millions of industrial workers, dockers, railwaymen, and students took to the streets against Ayub Khan's decade-long military dictatorship and the concentration of national wealth in 22 elite families. In March 1970, over 300,000 peasants gathered at Toba Tek Singh in Punjab under red banners, shaking the foundations of the feudal order and demanding agrarian redistribution." data-ur="صنعتی مزدوروں، ریلوے ملازمین اور طلبہ نے ایوب خان کی آمریت اور 22 خاندانوں کی دولت پر اجارہ داری کے خلاف ملک گیر ہڑتالیں کیں۔ مارچ 1970 میں پنجاب کے شہر ٹوبہ ٹیک سنگھ میں 3 لاکھ سے زائد کسانوں نے سرخ پرچم تلے جمع ہو کر جاگیرداری نظام کی بنیادیں ہلا دیں۔">
+              Millions of industrial workers, dockers, railwaymen, and students took to the streets against Ayub Khan's decade-long military dictatorship and the concentration of national wealth in 22 elite families. In March 1970, over 300,000 peasants gathered at Toba Tek Singh in Punjab under red banners, shaking the foundations of the feudal order and demanding agrarian redistribution.
+            </p>
+            <div class="timeline-impact-pill">
+              <svg class="svg-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span data-en="Key Pillar: Fall of the military regime and national recognition of the 8-hour workday" data-ur="اہم سنگِ میل: عسکری آمریت کا خاتمہ اور 8 گھنٹے کے کام کے دن کی قومی منظوری">Key Pillar: Fall of the military regime and national recognition of the 8-hour workday</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. 1980-1986 Martyrs & Resistance -->
+        <div class="timeline-item timeline-left" data-era="resistance">
+          <div class="timeline-node" title="1980–1986 • Martyrs & Defiance">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-meta-bar">
+              <span class="timeline-year"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <span data-en="1980–1986 • SACRIFICE" data-ur="1980–1986 • سرخ شہادت">1980–1986 • SACRIFICE</span></span>
+              <span class="timeline-category" data-en="Anti-Martial Law Struggle" data-ur="آمریت مخالف جدوجہد">Anti-Martial Law Struggle</span>
+            </div>
+            <h3 class="timeline-title" data-en="Martyrdom of Nazir Abbasi & The Jam Saqi Military Defense Trial" data-ur="شہید نذیر عباسی کا لہو اور تاریخی جام ساقی ملٹری کورٹ ٹرائل">Martyrdom of Nazir Abbasi & The Jam Saqi Military Defense Trial</h3>
+            <div class="timeline-quote">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 0 4-1.5 6-3 8zm14 0c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 0 4-1.5 6-3 8z"></path></svg>
+              <span data-en="“You can break my body in the dungeons of Lahore Fort, but you can never extinguish the red star of liberation!” — Comrade Nazir Abbasi (1952–1980)" data-ur="”تم شاہی قلعہ کی کوٹھڑیوں میں میرا جسم تو توڑ سکتے ہو مگر انقلاب کے سرخ ستارے کو کبھی بجھا نہیں سکتے!“ — شہید نذیر عباسی (1952–1980)">“You can break my body in the dungeons of Lahore Fort, but you can never extinguish the red star of liberation!” — Comrade Nazir Abbasi (1952–1980)</span>
+            </div>
+            <p class="timeline-desc" data-en="Under General Zia-ul-Haq's brutal martial law, communist cadres endured torture, lashings, and military tribunals. On August 9, 1980, 27-year-old Central Committee leader Nazir Abbasi was tortured to death in Lahore Fort, refusing to surrender a single comrade's name. In the 1981 Jam Saqi trial, political leaders from every democratic quarter stood before the military court in solidarity with communist prisoners." data-ur="ضیاء الحق کے بدترین مارشل لاء کے دوران کمیونسٹ رہنماؤں نے کوڑے اور کال کوٹھڑیاں خندہ پیشانی سے جھیلیں۔ 9 اگست 1980 کو شاہی قلعہ لاہور میں نوجوان رہنما نذیر عباسی نے بہیمانہ تشدد کے دوران جامِ شہادت نوش کیا مگر ایک بھی ساتھی کا نام افشا نہ کیا۔ 1981 میں کامریڈ جام ساقی کے عسکری مقدمے میں محترمہ بے نظیر بھٹو سمیت قومی رہنماؤں نے کمیونسٹوں کے حق میں گواہی دی۔">
+              Under General Zia-ul-Haq's brutal martial law, communist cadres endured torture, lashings, and military tribunals. On August 9, 1980, 27-year-old Central Committee leader Nazir Abbasi was tortured to death in Lahore Fort, refusing to surrender a single comrade's name. In the 1981 Jam Saqi trial, political leaders from every democratic quarter stood before the military court in solidarity with communist prisoners.
+            </p>
+            <div class="timeline-impact-pill">
+              <svg class="svg-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span data-en="Key Pillar: Moral triumph over dictatorship, cementing socialist martyrdom in the collective memory" data-ur="اہم سنگِ میل: آمریت کے خلاف فکری فتح اور عوامی حافظے میں سرخ قربانی کا انمٹ نقوش">Key Pillar: Moral triumph over dictatorship, cementing socialist martyrdom in the collective memory</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. 2020s-Present Modern Vanguard -->
+        <div class="timeline-item timeline-right" data-era="modern">
+          <div class="timeline-node" title="2020s–Present • Modern Vanguard">
+            <svg class="svg-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-meta-bar">
+              <span class="timeline-year"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <span data-en="2020s–PRESENT • RE-EMERGENCE" data-ur="عصرِ حاضر • جدید ہراول جماعت">2020s–PRESENT • RE-EMERGENCE</span></span>
+              <span class="timeline-category" data-en="Modern Working-Class Vanguard" data-ur="ڈیجیٹل و عوامی محاذ">Modern Working-Class Vanguard</span>
+            </div>
+            <h3 class="timeline-title" data-en="Communists of Pakistan (@COPOFPK): The Vanguard of the 21st Century" data-ur="کمیونسٹس آف پاکستان (@COPOFPK): اکیسویں صدی میں طبقاتی اتحاد کی نوید">Communists of Pakistan (@COPOFPK): The Vanguard of the 21st Century</h3>
+            <div class="timeline-quote">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 0 4-1.5 6-3 8zm14 0c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 0 4-1.5 6-3 8z"></path></svg>
+              <span data-en="“Against IMF debt bondage, utility piracy, and oligarchic rule — we build the party of workers, peasants, students, and oppressed nationalities.” — @COPOFPK" data-ur="”آئی ایم ایف کے مسلط کردہ بوجھ، بجلی بلوں کی ڈکیتی اور حکمراں طبقے کی لوٹ مار کے خلاف — ہم مزدوروں، کسانوں، طلبہ اور مظلوم قومیتوں کی انقلابی جماعت منظم کر رہے ہیں۔“ — @COPOFPK">“Against IMF debt bondage, utility piracy, and oligarchic rule — we build the party of workers, peasants, students, and oppressed nationalities.” — @COPOFPK</span>
+            </div>
+            <p class="timeline-desc" data-en="Confronting catastrophic foreign debt traps, hyperinflation, environmental collapse, and agricultural distress, the Communists of Pakistan re-emerged as a militant digital and grassroots force. Coordinating nationwide actions via verified digital cadre rosters, active study circles across all provinces, and mass wings for industrial labor, peasant Haris, students, and working women." data-ur="قرضوں کے جال، ہوشربا مہنگائی، سیلابی تباہ کاریوں اور زرعی بدحالی کے توڑ کے لیے کمیونسٹس آف پاکستان (@COPOFPK) ایک منظم ڈیجیٹل اور عوامی قوت کے طور پر متحرک ہو چکی ہے۔ تمام صوبوں میں تصدیق شدہ کیڈر رجسٹر، تربیتی اسٹڈی سرکلز اور 5 بنیادی عوامی شعبوں کے ذریعے فیصلہ کن عوامی مزاحمت کی قیادت۔">
+              Confronting catastrophic foreign debt traps, hyperinflation, environmental collapse, and agricultural distress, the Communists of Pakistan re-emerged as a militant digital and grassroots force. Coordinating nationwide actions via verified digital cadre rosters, active study circles across all provinces, and mass wings for industrial labor, peasant Haris, students, and working women.
+            </p>
+            <div class="timeline-impact-pill">
+              <svg class="svg-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span data-en="Key Pillar: Central digital register, live verifiable cadre cards, and nationwide anti-austerity mobilizations" data-ur="اہم سنگِ میل: جدید ڈیجیٹل کیڈر رجسٹر، تصدیق شدہ کارڈز اور عوامی ہڑتالوں کی قیادت">Key Pillar: Central digital register, live verifiable cadre cards, and nationwide anti-austerity mobilizations</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline Bottom Callout Banner -->
+      <div class="timeline-cta-banner">
+        <div class="timeline-cta-content">
+          <div class="timeline-cta-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          </div>
+          <div class="timeline-cta-text">
+            <h3 data-en="History Is Not Merely Remembered — It Is Written by the Living" data-ur="تاریخ صرف یاد کرنے کے لیے نہیں — بلکہ خود رقم کرنے کے لیے ہے">History Is Not Merely Remembered — It Is Written by the Living</h3>
+            <p data-en="Carry forward the unbroken legacy of Sajjad Zaheer, Faiz Ahmad Faiz, Jam Saqi, and Shaheed Nazir Abbasi. Enlist as an official cadre in the Communists of Pakistan." data-ur="سجاد ظہیر، فیض احمد فیض، جام ساقی اور شہید نذیر عباسی کے سرخ مشن کو آگے بڑھائیں۔ کمیونسٹس آف پاکستان میں شامل ہو کر اپنی باضابطہ رکنیت حاصل کریں۔">
+              Carry forward the unbroken legacy of Sajjad Zaheer, Faiz Ahmad Faiz, Jam Saqi, and Shaheed Nazir Abbasi. Enlist as an official cadre in the Communists of Pakistan.
+            </p>
+          </div>
+          <div class="timeline-cta-actions">
+            <a href="#join" class="btn btn-primary" data-en="Enlist in COP" data-ur="پارٹی میں شامل ہوں">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+              <span>Enlist in COP</span>
+            </a>
+            <a href="#library" class="btn btn-outline-gold" data-en="Study Red Archive" data-ur="نظریاتی کتب کا مطالعہ">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              <span>Study Red Archive</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -784,15 +1003,6 @@
           <div class="verify-search-row">
             <input type="text" id="verifyInput" class="form-control" placeholder="Enter Card ID (COP-PK-2026-XXXXXX), Phone, or Name..." style="max-width: 540px;">
             <button class="btn btn-primary" id="verifyLookupBtn" style="padding: 0.8rem 1.8rem;" data-en="Verify" data-ur="تصدیق کریں"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> Verify</button>
-          </div>
-
-          <!-- Quick Test Sample Chips -->
-          <div class="verify-sample-chips">
-            <span class="chips-label">Quick Test:</span>
-            <button type="button" class="verify-chip" data-id="COP-PK-2026-100001">Jam Saqi (100001)</button>
-            <button type="button" class="verify-chip" data-id="COP-PK-2026-100002">Dada Amir Haider (100002)</button>
-            <button type="button" class="verify-chip" data-id="COP-PK-2026-100003">Faiz Ahmad Faiz (100003)</button>
-            <button type="button" class="verify-chip" data-id="COP-PK-2026-100004">Begum Nasim Wali (100004)</button>
           </div>
 
           <div class="verify-result" id="verifyResult" style="display: none;"></div>

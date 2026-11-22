@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Communists of Pakistan (COP) - Main Application Controller
  * Official Handle: @COPOFPK
  * 
@@ -9,8 +9,8 @@
  */
 
 // Global download handler callable from any dynamic HTML button
-window.downloadComradeCard = function (id) {
-  const comrade = window.PartyLedger ? window.PartyLedger.lookup(id) : null;
+window.downloadComradeCard = async function (id) {
+  const comrade = window.PartyLedger ? await window.PartyLedger.lookup(id) : null;
   if (!comrade) {
     if (window.showAppToast) window.showAppToast('Comrade record not found.');
     return;
@@ -19,7 +19,7 @@ window.downloadComradeCard = function (id) {
   window.CardCanvasExporter.download(comrade);
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
 
   // =============================================
   // 1. MOBILE NAV TOGGLE
@@ -104,6 +104,35 @@ document.addEventListener('DOMContentLoaded', () => {
           }, 40);
         } else {
           card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // =============================================
+  // 3b. REVOLUTIONARY TIMELINE ERA FILTER
+  // =============================================
+  const timelineFilterBtns = document.querySelectorAll('.timeline-filter-btn');
+  const timelineItems = document.querySelectorAll('.timeline-item');
+
+  timelineFilterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      timelineFilterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const era = btn.getAttribute('data-era');
+
+      timelineItems.forEach(item => {
+        if (era === 'all' || item.getAttribute('data-era') === era) {
+          item.style.display = 'flex';
+          item.style.opacity = '0';
+          item.style.transform = 'translateY(12px)';
+          setTimeout(() => {
+            item.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+          }, 30);
+        } else {
+          item.style.display = 'none';
         }
       });
     });
@@ -211,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const regPanels = document.querySelectorAll('.reg-panel');
 
   regTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
+    tab.addEventListener('click', async () => {
       regTabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
       const targetId = tab.getAttribute('data-panel');
@@ -221,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
         else p.classList.remove('active');
       });
       // If opening roster, refresh it
-      if (targetId === 'rosterPanel') refreshRoster();
+      if (targetId === 'rosterPanel') await refreshRoster();
     });
   });
 
@@ -416,7 +445,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (joinForm) {
-    joinForm.addEventListener('submit', (e) => {
+    joinForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       // Run all validations
@@ -450,7 +479,7 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       // Register via PartyLedger
-      const result = window.PartyLedger.register(data);
+      const result = await window.PartyLedger.register(data);
       activeComrade = result.comrade;
 
       if (!result.isNew) {
@@ -517,8 +546,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const newRegBtn = document.getElementById('newRegBtn');
 
   if (downloadCardBtn) {
-    downloadCardBtn.addEventListener('click', () => {
-      const comrade = activeComrade || (window.PartyLedger ? window.PartyLedger.getActive() : null);
+    downloadCardBtn.addEventListener('click', async () => {
+      const comrade = activeComrade || (window.PartyLedger ? await window.PartyLedger.getActive() : null);
       if (!comrade) {
         showToast('No comrade registered yet. Submit the form first.');
         return;
@@ -587,14 +616,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  function performVerification() {
+  async function performVerification() {
     const query = verifyInput ? verifyInput.value.trim() : '';
     if (!query) {
       showToast('Enter a Card ID, phone number, or name to search.');
       return;
     }
 
-    const comrade = window.PartyLedger.lookup(query);
+    const comrade = await window.PartyLedger.lookup(query);
     if (!verifyResult) return;
 
     verifyResult.style.display = 'block';
@@ -691,10 +720,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const exportCSVBtn = document.getElementById('exportCSVBtn');
   const exportJSONBtn = document.getElementById('exportJSONBtn');
 
-  function refreshRoster() {
+  async function refreshRoster() {
     if (!rosterBody) return;
 
-    const all = window.PartyLedger.getAll();
+    const all = await window.PartyLedger.getAll();
     const searchVal = rosterSearch ? rosterSearch.value.trim().toLowerCase() : '';
     const provFilter = rosterProvinceFilter ? rosterProvinceFilter.value : '';
 
@@ -770,10 +799,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     rosterBody.querySelectorAll('.roster-delete-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', async () => {
         const id = btn.getAttribute('data-id');
         if (confirm(`Remove cadre ${id} from your local ledger?`)) {
-          window.PartyLedger.delete(id);
+          await window.PartyLedger.delete(id);
           refreshRoster();
           showToast(`Cadre ${id} removed.`);
         }
@@ -785,15 +814,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if (rosterProvinceFilter) rosterProvinceFilter.addEventListener('change', refreshRoster);
 
   if (exportCSVBtn) {
-    exportCSVBtn.addEventListener('click', () => {
-      window.PartyLedger.exportCSV();
+    exportCSVBtn.addEventListener('click', async () => {
+      await window.PartyLedger.exportCSV();
       showToast('Cadre roster exported as CSV.');
     });
   }
 
   if (exportJSONBtn) {
-    exportJSONBtn.addEventListener('click', () => {
-      window.PartyLedger.exportJSON();
+    exportJSONBtn.addEventListener('click', async () => {
+      await window.PartyLedger.exportJSON();
       showToast('Cadre roster exported as JSON.');
     });
   }
@@ -850,7 +879,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =============================================
   // 16. ON-LOAD: RESTORE ACTIVE CADRE IF EXISTS
   // =============================================
-  const savedCadre = window.PartyLedger ? window.PartyLedger.getActive() : null;
+  const savedCadre = window.PartyLedger ? await window.PartyLedger.getActive() : null;
   if (savedCadre) {
     activeComrade = savedCadre;
     if (liveCardId) liveCardId.textContent = `ID: ${savedCadre.id}`;
